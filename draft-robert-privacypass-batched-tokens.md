@@ -255,7 +255,7 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
 
 If this succeeds, the Client then constructs `Nr` Token values as follows, where
 `authenticator_i` is the i-th element of `authenticator_values` that corresponds
-to the i-th nonce was sampled in {{client-to-issuer-request}} and that the client
+to the i-th nonce that was sampled in {{client-to-issuer-request}} and that the client
 wants to redeem:
 
 ~~~
