@@ -254,17 +254,16 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
 ~~~
 
 If this succeeds, the Client then constructs `Nr` Token values as follows, where
-`authenticator_i` is the i-th element of `authenticator_values` that corresponds
-to the i-th nonce that was sampled in {{client-to-issuer-request}} and that the client
-wants to redeem:
+`authenticator` is the i-th element of `authenticator_values` that corresponds
+to `nonce`, the i-th nonce that was sampled in {{client-to-issuer-request}}:
 
 ~~~
 struct {
     uint16_t token_type = 0x0003
-    uint8_t nonce_i[32];
+    uint8_t nonce[32];
     uint8_t challenge_digest[32];
     uint8_t token_key_id[32];
-    uint8_t authenticator_i[Nh];
+    uint8_t authenticator[Nh];
 } Token;
 ~~~
 
