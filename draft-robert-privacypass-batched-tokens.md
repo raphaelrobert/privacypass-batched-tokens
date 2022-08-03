@@ -254,8 +254,8 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
 ~~~
 
 If this succeeds, the Client then constructs `Nr` Token values as follows, where
-`authenticator` is the i-th element of `authenticator_values` that corresponds
-to `nonce`, the i-th nonce that was sampled in {{client-to-issuer-request}}:
+`authenticator` is the i-th Nh-byte length slice of `authenticator_values` that
+corresponds to `nonce`, the i-th nonce that was sampled in {{client-to-issuer-request}}:
 
 ~~~
 struct {
