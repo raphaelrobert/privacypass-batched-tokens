@@ -63,8 +63,8 @@ a large number of clients need to fetch a large number of tokens, this may intro
 performance bottlenecks. The Batched Token Issuance Protocol improves upon the basic
 Privately Verifiable Token issuance protocol in the following key ways:
 
-1. Issuing multiple tokens at once in response to a single TokenChallenge.
-1. Improving server issuance efficiency by amortizing the cost of the VOPRF proof generation.
+1. Issuing multiple tokens at once in response to a single TokenChallenge, thereby reducing the size of the proofs required for multiple tokens.
+1. Improving server and client issuance efficiency by amortizing the cost of the VOPRF proof generation and verification, respectively.
 
 # Client-to-Issuer Request {#client-to-issuer-request}
 
