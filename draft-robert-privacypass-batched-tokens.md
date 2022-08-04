@@ -144,12 +144,13 @@ and computes a blinded response as follows:
 
 ~~~
 server_context = SetupVOPRFServer(0x0001, skI, pkI)
-evaluated_elements, proof = server_context.BlindEvaluate(skI, blinded_elements)
+evaluated_elements, proof = server_context.BlindEvaluateBatch(skI, blinded_elements)
 ~~~
 
 SetupVOPRFServer is defined in {{OPRF, Section 3.2}}. The issuer uses a list of
-blinded elements to compute in the proof generation step, the `BlindEvaluate`
-function described in {{OPRF, Section 3.3.2}} is amended in the folowing way:
+blinded elements to compute in the proof generation step. The `BlindEvaluateBatch`
+function is a batch-oriented version of the `BlindEvaluate` function described
+in {{OPRF, Section 3.3.2}}. The description of `BlindEvaluateBatch` is below.
 
 ~~~
 Input:
@@ -167,7 +168,7 @@ Parameters:
   Scalar skS
   Element pkS
 
-def BlindEvaluate(blindedElements):
+def BlindEvaluateBatch(blindedElements):
   evaluatedElements = []
   for blindedElement in blindedElements:
     evaluatedElements.append(skS * blindedElement)
@@ -212,9 +213,10 @@ follows:
 authenticator_values = client_context.FinalizeBatch(token_input, blind, evaluated_elements, blinded_elements, proof)
 ~~~
 
-The FinalizeBatch function is similar to the Finalize function is defined in
-{{OPRF, Section 3.3.2}}, but accepts lists of evaluated elements and blinded
-elements as input parameters:
+The `FinalizeBatch` function is a batched variant of the `Finalize` function as
+defined in {{OPRF, Section 3.3.2}}. `FinalizeBatch` accepts lists of evaluated
+elements and blinded elements as input parameters, and is implemented as described
+below:
 
 ~~~
 Input:
