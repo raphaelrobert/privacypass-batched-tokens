@@ -88,7 +88,7 @@ with the input challenge and Issuer key identifier as described below:
 ~~~
 nonce_i = random(32)
 challenge_digest = SHA256(challenge)
-token_input = concat(0x0003, nonce_i, challenge_digest, key_id)
+token_input = concat(0xF91A, nonce_i, challenge_digest, key_id)
 blind_i, blinded_element_i = client_context.Blind(token_input)
 ~~~
 
@@ -103,7 +103,7 @@ struct {
 } BlindedElement;
 
 struct {
-   uint16_t token_type = 0x0003;
+   uint16_t token_type = 0xF91A;
    uint8_t token_key_id;
    BlindedElement blinded_elements[Nr];
 } TokenRequest;
@@ -121,7 +121,7 @@ The structure fields are defined as follows:
 
 Upon receipt of the request, the Issuer validates the following conditions:
 
-- The TokenRequest contains a supported token_type equal to 0x0003.
+- The TokenRequest contains a supported token_type equal to 0xF91A.
 - The TokenRequest.token_key_id corresponds to a key ID of a Public Key owned by the issuer.
 - The TokenRequest.blinded_elements is of the correct size (divisible by Ne).
 - Nr, as determined based on the size of TokenRequest.blinded_elements, is less
@@ -261,7 +261,7 @@ corresponds to `nonce`, the i-th nonce that was sampled in {{client-to-issuer-re
 
 ~~~
 struct {
-    uint16_t token_type = 0x0003
+    uint16_t token_type = 0xF91A
     uint8_t nonce[32];
     uint8_t challenge_digest[32];
     uint8_t token_key_id[32];
@@ -286,5 +286,5 @@ This document updates the "Token Type" Registry ({{AUTHSCHEME}}) with the follow
 
 | Value  | Name                                        | Publicly Verifiable | Public Metadata | Private Metadata | Nk  | Reference        |
 |:-------|:--------------------------------------------|:--------------------|:----------------|:-----------------|:----|:-----------------|
-| 0x0003 | Batched Token VOPRF (ristretto255, SHA-512) | N                   | N               | N                | 32  | This document    |
+| 0xF91A | Batched Token VOPRF (ristretto255, SHA-512) | N                   | N               | N                | 32  | This document    |
 {: #aeadid-values title="Token Types"}
