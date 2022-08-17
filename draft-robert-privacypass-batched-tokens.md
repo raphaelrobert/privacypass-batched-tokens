@@ -105,7 +105,7 @@ struct {
 struct {
    uint16_t token_type = 0xF91A;
    uint8_t token_key_id;
-   BlindedElement blinded_elements[Nr];
+   BlindedElement blinded_elements<0..2^16-1>;
 } TokenRequest;
 ~~~
 
@@ -123,7 +123,6 @@ Upon receipt of the request, the Issuer validates the following conditions:
 
 - The TokenRequest contains a supported token_type equal to 0xF91A.
 - The TokenRequest.token_key_id corresponds to a key ID of a Public Key owned by the issuer.
-- The TokenRequest.blinded_elements is of the correct size (divisible by Ne).
 - Nr, as determined based on the size of TokenRequest.blinded_elements, is less
   than or equal to the number of tokens that the issuer can issue in a single batch.
 
@@ -186,7 +185,7 @@ struct {
 } EvaluatedElement;
 
 struct {
-   EvaluatedElement evaluated_elements[Nr];
+   EvaluatedElement evaluated_elements<0..2^16-1>;
    uint8_t evaluated_proof[Ns + Ns];
 } TokenResponse;
 ~~~
