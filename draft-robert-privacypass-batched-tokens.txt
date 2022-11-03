@@ -5,8 +5,8 @@
 Network Working Group                                          R. Robert
 Internet-Draft                                                          
 Intended status: Informational                                C. A. Wood
-Expires: 18 February 2023                                     Cloudflare
-                                                          17 August 2022
+Expires: 7 May 2023                                           Cloudflare
+                                                         3 November 2022
 
 
                     Batched Token Issuance Protocol
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 February 2023.
+   This Internet-Draft will expire on 7 May 2023.
 
 Copyright Notice
 
@@ -143,7 +143,7 @@ Table of Contents
    struct {
       uint16_t token_type = 0xF91A;
       uint8_t token_key_id;
-      BlindedElement blinded_elements[Nr];
+      BlindedElement blinded_elements<0..2^16-1>;
    } TokenRequest;
 
    The structure fields are defined as follows:
@@ -167,9 +167,6 @@ Table of Contents
 
    *  The TokenRequest.token_key_id corresponds to a key ID of a Public
       Key owned by the issuer.
-
-   *  The TokenRequest.blinded_elements is of the correct size
-      (divisible by Ne).
 
    *  Nr, as determined based on the size of
       TokenRequest.blinded_elements, is less than or equal to the number
@@ -233,7 +230,7 @@ evaluated_elements, proof = server_context.BlindEvaluateBatch(skI, blinded_eleme
    } EvaluatedElement;
 
    struct {
-      EvaluatedElement evaluated_elements[Nr];
+      EvaluatedElement evaluated_elements<0..2^16-1>;
       uint8_t evaluated_proof[Ns + Ns];
    } TokenResponse;
 
@@ -328,15 +325,15 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
    This document updates the "Token Type" Registry ([AUTHSCHEME]) with
    the following value:
 
-   +======+================+============+========+========+==+=========+
-   |Value | Name           | Publicly   |Public  |Private |Nk|Reference|
-   |      |                | Verifiable |Metadata|Metadata|  |         |
-   +======+================+============+========+========+==+=========+
-   |0xF91A| Batched Token  | N          |N       |N       |32|This     |
-   |      | VOPRF          |            |        |        |  |document |
-   |      | (ristretto255, |            |        |        |  |         |
-   |      | SHA-512)       |            |        |        |  |         |
-   +------+----------------+------------+--------+--------+--+---------+
+    +======+================+==========+========+========+==+=========+
+    |Value | Name           |Publicly  |Public  |Private |Nk|Reference|
+    |      |                |Verifiable|Metadata|Metadata|  |         |
+    +======+================+==========+========+========+==+=========+
+    |0xF91A| Batched Token  |N         |N       |N       |32|This     |
+    |      | VOPRF          |          |        |        |  |document |
+    |      | (ristretto255, |          |        |        |  |         |
+    |      | SHA-512)       |          |        |        |  |         |
+    +------+----------------+----------+--------+--------+--+---------+
 
                             Table 1: Token Types
 
@@ -344,11 +341,11 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
 
 8.1.  Normative References
 
-   [ARCH]     Davidson, A., Iyengar, J., and C. A. Wood, "Privacy Pass
-              Architectural Framework", Work in Progress, Internet-
-              Draft, draft-ietf-privacypass-architecture-06, 5 August
-              2022, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              privacypass-architecture-06>.
+   [ARCH]     Davidson, A., Iyengar, J., and C. A. Wood, "The Privacy
+              Pass Architecture", Work in Progress, Internet-Draft,
+              draft-ietf-privacypass-architecture-08, 17 October 2022,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-
+              privacypass-architecture-08>.
 
    [AUTHSCHEME]
               Pauly, T., Valdez, S., and C. A. Wood, "The Privacy Pass
@@ -357,18 +354,18 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
               2022, <https://datatracker.ietf.org/doc/html/draft-ietf-
               privacypass-auth-scheme-05>.
 
-   [ISSUANCE] Celi, S., Davidson, A., Faz-Hernandez, A., Valdez, S., and
+   [ISSUANCE] Celi, S., Davidson, A., Faz-Hernández, A., Valdez, S., and
               C. A. Wood, "Privacy Pass Issuance Protocol", Work in
               Progress, Internet-Draft, draft-ietf-privacypass-protocol-
               06, 6 July 2022, <https://datatracker.ietf.org/doc/html/
               draft-ietf-privacypass-protocol-06>.
 
-   [OPRF]     Davidson, A., Faz-Hernandez, A., Sullivan, N., and C. A.
+   [OPRF]     Davidson, A., Faz-Hernández, A., Sullivan, N., and C. A.
               Wood, "Oblivious Pseudorandom Functions (OPRFs) using
               Prime-Order Groups", Work in Progress, Internet-Draft,
-              draft-irtf-cfrg-voprf-12, 1 August 2022,
+              draft-irtf-cfrg-voprf-14, 6 October 2022,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              voprf-12>.
+              voprf-14>.
 
 8.2.  Informative References
 

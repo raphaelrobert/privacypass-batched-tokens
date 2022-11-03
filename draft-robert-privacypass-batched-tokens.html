@@ -12,11 +12,11 @@
 allows for batched issuance of tokens. This allows clients to request more than
 one token at a time and for issuers to isse more than one token at a time. 
     " name="description">
-<meta content="xml2rfc 3.13.1" name="generator">
+<meta content="xml2rfc 3.15.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-robert-privacypass-batched-tokens-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.13.1
+  xml2rfc 3.15.2
     Python 3.10.5
     appdirs 1.4.4
     ConfigArgParse 1.5.3
@@ -24,15 +24,14 @@ one token at a time and for issuers to isse more than one token at a time.
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 3.1.2
-    kitchen 1.2.6
     lxml 4.9.1
     MarkupSafe 2.1.1
     pycountry 22.3.5
-    pyflakes 2.4.0
     PyYAML 6.0
     requests 2.27.1
     setuptools 59.4.0
     six 1.16.0
+    wcwidth 0.2.5
 -->
 <link href="draft-robert-privacypass-batched-tokens.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -376,7 +375,7 @@ dl {
 dl > dt {
   float: left;
   margin-right: 1em;
-  min-width: 20ch;
+  min-width: 12ch;
 }
 dl.dlNewline > dt {
   float: none;
@@ -1034,16 +1033,16 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </style>
 
 </head>
-<body>
+<body class="xml2rfc">
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Batched Tokens</td>
-<td class="right">August 2022</td>
+<td class="right">November 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Robert &amp; Wood</td>
-<td class="center">Expires 18 February 2023</td>
+<td class="center">Expires 7 May 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1056,12 +1055,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-robert-privacypass-batched-tokens-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-08-17" class="published">17 August 2022</time>
+<time datetime="2022-11-03" class="published">3 November 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-02-18">18 February 2023</time></dd>
+<dd class="expires"><time datetime="2023-05-07">7 May 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1100,7 +1099,7 @@ one token at a time and for issuers to isse more than one token at a time.<a hre
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 February 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1130,44 +1129,44 @@ one token at a time and for issuers to isse more than one token at a time.<a hre
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-motivation" class="xref">Motivation</a></p>
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-motivation" class="internal xref">Motivation</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-client-to-issuer-request" class="xref">Client-to-Issuer Request</a></p>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-client-to-issuer-request" class="internal xref">Client-to-Issuer Request</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-issuer-to-client-response" class="xref">Issuer-to-Client Response</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-issuer-to-client-response" class="internal xref">Issuer-to-Client Response</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-finalization" class="xref">Finalization</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-finalization" class="internal xref">Finalization</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security considerations</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations" class="xref">IANA considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-token-type" class="xref">Token Type</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-token-type" class="internal xref">Token Type</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1179,22 +1178,22 @@ one token at a time and for issuers to isse more than one token at a time.<a hre
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">This document specifies a variant of the Privacy Pass issuance protocol (as
-defined in <span>[<a href="#ARCH" class="xref">ARCH</a>]</span>) that allows for batched
+defined in <span>[<a href="#ARCH" class="cite xref">ARCH</a>]</span>) that allows for batched
 issuance of tokens. This allows clients to request more than one token at a time
 and for issuers to isse more than one token at a time.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">The base Privacy Pass issuance protocol <span>[<a href="#ISSUANCE" class="xref">ISSUANCE</a>]</span>
+<p id="section-1-2">The base Privacy Pass issuance protocol <span>[<a href="#ISSUANCE" class="cite xref">ISSUANCE</a>]</span>
 defines stateless anonymous tokens, which can either be publicly verifiable
 or not. While it is possible to run multiple instances of the issuance protocol
-in parallel, e.g., over a multiplexed transport such as HTTP/3 <span>[<a href="#HTTP3" class="xref">HTTP3</a>]</span>,
+in parallel, e.g., over a multiplexed transport such as HTTP/3 <span>[<a href="#HTTP3" class="cite xref">HTTP3</a>]</span>,
 the cost of doing so scales linearly with the number of instances.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">This variant builds upon the privately verifiable issuance protocol that uses
-VOPRF <span>[<a href="#OPRF" class="xref">OPRF</a>]</span>, and allows for batched issuance of tokens.
+VOPRF <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span>, and allows for batched issuance of tokens.
 This allows clients to request more than one token at a time and for issuers to
 issue more than one token at a time. In effect, batched issuance performance
 scales better than linearly.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">This issuance protocol registers the batched token type
-(<a href="#iana-token-type" class="xref">Section 7.1</a>), to be used with the PrivateToken HTTP authentication
-scheme defined in <span>[<a href="#AUTHSCHEME" class="xref">AUTHSCHEME</a>]</span>.<a href="#section-1-4" class="pilcrow">¶</a></p>
+(<a href="#iana-token-type" class="auto internal xref">Section 7.1</a>), to be used with the PrivateToken HTTP authentication
+scheme defined in <span>[<a href="#AUTHSCHEME" class="cite xref">AUTHSCHEME</a>]</span>.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="motivation">
@@ -1203,7 +1202,7 @@ scheme defined in <span>[<a href="#AUTHSCHEME" class="xref">AUTHSCHEME</a>]</spa
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-motivation" class="section-name selfRef">Motivation</a>
       </h2>
 <p id="section-2-1">Privately Verifiable Tokens (as defines in
-<span>[<a href="#ISSUANCE" class="xref">ISSUANCE</a>]</span>) offer a simple way to unlink the
+<span>[<a href="#ISSUANCE" class="cite xref">ISSUANCE</a>]</span>) offer a simple way to unlink the
 issuance from the redemption. The base protocol however only allows for a single
 token to be issued at a time for every challenge. In some cases, especially where
 a large number of clients need to fetch a large number of tokens, this may introduce
@@ -1223,7 +1222,7 @@ Privately Verifiable Token issuance protocol in the following key ways:<a href="
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-client-to-issuer-request" class="section-name selfRef">Client-to-Issuer Request</a>
       </h2>
 <p id="section-3-1">Except where specified otherwise, the client follows the same protocol as described in
-<span>[<a href="#ISSUANCE" class="xref">ISSUANCE</a>], <a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06#section-5.1" class="relref">Section 5.1</a></span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<span>[<a href="#ISSUANCE" class="cite xref">ISSUANCE</a>], <a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06#section-5.1" class="relref">Section 5.1</a></span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">The Client first creates a context as follows:<a href="#section-3-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-3-3">
 <pre>
@@ -1231,8 +1230,8 @@ client_context = SetupVOPRFClient(0x0001, pkI)
 </pre><a href="#section-3-3" class="pilcrow">¶</a>
 </div>
 <p id="section-3-4">Here, 0x0001 is the two-octet identifier corresponding to the
-OPRF(ristretto255, SHA-512) ciphersuite in <span>[<a href="#OPRF" class="xref">OPRF</a>]</span>. SetupVOPRFClient
-is defined in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-3.2" class="relref">Section 3.2</a></span>.<a href="#section-3-4" class="pilcrow">¶</a></p>
+OPRF(ristretto255, SHA-512) ciphersuite in <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span>. SetupVOPRFClient
+is defined in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-3.2" class="relref">Section 3.2</a></span>.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5"><code>Nr</code> denotes the number of tokens the clients wants to request. For every token,
 the Client then creates an issuance request message for a random value <code>nonce</code>
 with the input challenge and Issuer key identifier as described below:<a href="#section-3-5" class="pilcrow">¶</a></p>
@@ -1256,7 +1255,7 @@ struct {
 struct {
    uint16_t token_type = 0xF91A;
    uint8_t token_key_id;
-   BlindedElement blinded_elements[Nr];
+   BlindedElement blinded_elements&lt;0..2^16-1&gt;;
 } TokenRequest;
 </pre><a href="#section-3-9" class="pilcrow">¶</a>
 </div>
@@ -1268,7 +1267,7 @@ struct {
 </li>
         <li class="normal" id="section-3-11.3">"blinded_elements" is a list of <code>Nr</code> serialized elements, each of length <code>Ne</code> bytes
 and computed as <code>SerializeElement(blinded_element_i)</code>, where blinded_element_i
-is the i-th output sequence of <code>Blind</code> invocations above. Ne is as defined in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-4" class="relref">Section 4</a></span>.<a href="#section-3-11.3" class="pilcrow">¶</a>
+is the i-th output sequence of <code>Blind</code> invocations above. Ne is as defined in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-4" class="relref">Section 4</a></span>.<a href="#section-3-11.3" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-3-12">Upon receipt of the request, the Issuer validates the following conditions:<a href="#section-3-12" class="pilcrow">¶</a></p>
@@ -1277,10 +1276,8 @@ is the i-th output sequence of <code>Blind</code> invocations above. Ne is as de
 </li>
         <li class="normal" id="section-3-13.2">The TokenRequest.token_key_id corresponds to a key ID of a Public Key owned by the issuer.<a href="#section-3-13.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-3-13.3">The TokenRequest.blinded_elements is of the correct size (divisible by Ne).<a href="#section-3-13.3" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="section-3-13.4">Nr, as determined based on the size of TokenRequest.blinded_elements, is less
-than or equal to the number of tokens that the issuer can issue in a single batch.<a href="#section-3-13.4" class="pilcrow">¶</a>
+        <li class="normal" id="section-3-13.3">Nr, as determined based on the size of TokenRequest.blinded_elements, is less
+than or equal to the number of tokens that the issuer can issue in a single batch.<a href="#section-3-13.3" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-3-14">If any of these conditions is not met, the Issuer MUST return an HTTP 400 error
@@ -1293,9 +1290,9 @@ to the client.<a href="#section-3-14" class="pilcrow">¶</a></p>
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-issuer-to-client-response" class="section-name selfRef">Issuer-to-Client Response</a>
       </h2>
 <p id="section-4-1">Except where specified otherwise, the client follows the same protocol as described in
-<span>[<a href="#ISSUANCE" class="xref">ISSUANCE</a>], <a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06#section-5.2" class="relref">Section 5.2</a></span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<span>[<a href="#ISSUANCE" class="cite xref">ISSUANCE</a>], <a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06#section-5.2" class="relref">Section 5.2</a></span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">Upon receipt of a TokenRequest, the Issuer tries to deseralize the i-th element of TokenRequest.blinded_elements
-using DeserializeElement from <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-2.1" class="relref">Section 2.1</a> of [<a href="#OPRF" class="xref">OPRF</a>]</span>, yielding <code>blinded_element_i</code> of type <code>Element</code>.
+using DeserializeElement from <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-2.1" class="relref">Section 2.1</a> of [<a href="#OPRF" class="cite xref">OPRF</a>]</span>, yielding <code>blinded_element_i</code> of type <code>Element</code>.
 If this fails for any of the TokenRequest.blinded_elements values, the Issuer MUST
 return an HTTP 400 error to the client. Otherwise, if the Issuer is willing to produce
 a token to the Client, the issuer forms a list of <code>Element</code> values, denoted <code>blinded_elements</code>,
@@ -1306,10 +1303,10 @@ server_context = SetupVOPRFServer(0x0001, skI, pkI)
 evaluated_elements, proof = server_context.BlindEvaluateBatch(skI, blinded_elements)
 </pre><a href="#section-4-3" class="pilcrow">¶</a>
 </div>
-<p id="section-4-4">SetupVOPRFServer is defined in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-3.2" class="relref">Section 3.2</a></span>. The issuer uses a list of
+<p id="section-4-4">SetupVOPRFServer is defined in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-3.2" class="relref">Section 3.2</a></span>. The issuer uses a list of
 blinded elements to compute in the proof generation step. The <code>BlindEvaluateBatch</code>
 function is a batch-oriented version of the <code>BlindEvaluate</code> function described
-in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-3.3.2" class="relref">Section 3.3.2</a></span>. The description of <code>BlindEvaluateBatch</code> is below.<a href="#section-4-4" class="pilcrow">¶</a></p>
+in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-3.3.2" class="relref">Section 3.3.2</a></span>. The description of <code>BlindEvaluateBatch</code> is below.<a href="#section-4-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-5">
 <pre>
 Input:
@@ -1345,7 +1342,7 @@ struct {
 } EvaluatedElement;
 
 struct {
-   EvaluatedElement evaluated_elements[Nr];
+   EvaluatedElement evaluated_elements&lt;0..2^16-1&gt;;
    uint8_t evaluated_proof[Ns + Ns];
 } TokenResponse;
 </pre><a href="#section-4-7" class="pilcrow">¶</a>
@@ -1358,7 +1355,7 @@ is the i-th output of <code>BlindEvaluate</code>.<a href="#section-4-9.1" class=
 </li>
         <li class="normal" id="section-4-9.2">"evaluated_proof" is the (Ns+Ns)-octet serialized proof, which is a pair of
 Scalar values, computed as <code>concat(SerializeScalar(proof[0]),
-SerializeScalar(proof[1]))</code>, where Ns is as defined in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-4" class="relref">Section 4</a></span>.<a href="#section-4-9.2" class="pilcrow">¶</a>
+SerializeScalar(proof[1]))</code>, where Ns is as defined in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-4" class="relref">Section 4</a></span>.<a href="#section-4-9.2" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
@@ -1379,7 +1376,7 @@ authenticator_values = client_context.FinalizeBatch(token_input, blind, evaluate
 </pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
 <p id="section-5-3">The <code>FinalizeBatch</code> function is a batched variant of the <code>Finalize</code> function as
-defined in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-3.3.2" class="relref">Section 3.3.2</a></span>. <code>FinalizeBatch</code> accepts lists of evaluated
+defined in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-3.3.2" class="relref">Section 3.3.2</a></span>. <code>FinalizeBatch</code> accepts lists of evaluated
 elements and blinded elements as input parameters, and is implemented as described
 below:<a href="#section-5-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-4">
@@ -1422,7 +1419,7 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
 </div>
 <p id="section-5-5">If this succeeds, the Client then constructs <code>Nr</code> Token values as follows, where
 <code>authenticator</code> is the i-th Nh-byte length slice of <code>authenticator_values</code> that
-corresponds to <code>nonce</code>, the i-th nonce that was sampled in <a href="#client-to-issuer-request" class="xref">Section 3</a>:<a href="#section-5-5" class="pilcrow">¶</a></p>
+corresponds to <code>nonce</code>, the i-th nonce that was sampled in <a href="#client-to-issuer-request" class="auto internal xref">Section 3</a>:<a href="#section-5-5" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-6">
 <pre>
 struct {
@@ -1442,7 +1439,7 @@ struct {
       <h2 id="name-security-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security considerations</a>
       </h2>
-<p id="section-6-1">Implementors SHOULD be aware of the security considerations described in <span>[<a href="#OPRF" class="xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12#section-6.2.3" class="relref">Section 6.2.3</a></span> and implement mitigation mechanisms. Application can mitigate
+<p id="section-6-1">Implementors SHOULD be aware of the security considerations described in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14#section-6.2.3" class="relref">Section 6.2.3</a></span> and implement mitigation mechanisms. Application can mitigate
 this issue by limiting the number of clients and limiting the number of token
 requests per client per key.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
@@ -1457,7 +1454,7 @@ requests per client per key.<a href="#section-6-1" class="pilcrow">¶</a></p>
         <h3 id="name-token-type">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-token-type" class="section-name selfRef">Token Type</a>
         </h3>
-<p id="section-7.1-1">This document updates the "Token Type" Registry (<span>[<a href="#AUTHSCHEME" class="xref">AUTHSCHEME</a>]</span>) with the following value:<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">This document updates the "Token Type" Registry (<span>[<a href="#AUTHSCHEME" class="cite xref">AUTHSCHEME</a>]</span>) with the following value:<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <span id="name-token-types"></span><div id="aeadid-values">
 <table class="center" id="table-1">
           <caption>
@@ -1503,7 +1500,7 @@ requests per client per key.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="ARCH">[ARCH]</dt>
         <dd>
-<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Iyengar, J.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Privacy Pass Architectural Framework"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-privacypass-architecture-06</span>, <time datetime="2022-08-05" class="refDate">5 August 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-architecture-06">https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-architecture-06</a>&gt;</span>. </dd>
+<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Iyengar, J.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"The Privacy Pass Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-privacypass-architecture-08</span>, <time datetime="2022-10-17" class="refDate">17 October 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-architecture-08">https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-architecture-08</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="AUTHSCHEME">[AUTHSCHEME]</dt>
         <dd>
@@ -1511,11 +1508,11 @@ requests per client per key.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="ISSUANCE">[ISSUANCE]</dt>
         <dd>
-<span class="refAuthor">Celi, S.</span>, <span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernandez, A.</span>, <span class="refAuthor">Valdez, S.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Privacy Pass Issuance Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-privacypass-protocol-06</span>, <time datetime="2022-07-06" class="refDate">6 July 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06">https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06</a>&gt;</span>. </dd>
+<span class="refAuthor">Celi, S.</span>, <span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernández, A.</span>, <span class="refAuthor">Valdez, S.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Privacy Pass Issuance Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-privacypass-protocol-06</span>, <time datetime="2022-07-06" class="refDate">6 July 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06">https://datatracker.ietf.org/doc/html/draft-ietf-privacypass-protocol-06</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="OPRF">[OPRF]</dt>
       <dd>
-<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernandez, A.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-voprf-12</span>, <time datetime="2022-08-01" class="refDate">1 August 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-12</a>&gt;</span>. </dd>
+<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernández, A.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-voprf-14</span>, <time datetime="2022-10-06" class="refDate">6 October 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-14</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
