@@ -3,10 +3,10 @@
 
 
 Network Working Group                                          R. Robert
-Internet-Draft                                                          
+Internet-Draft                                               Phoenix R&D
 Intended status: Informational                                C. A. Wood
-Expires: 7 May 2023                                           Cloudflare
-                                                         3 November 2022
+Expires: 10 May 2023                                          Cloudflare
+                                                         6 November 2022
 
 
                     Batched Token Issuance Protocol
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 May 2023.
+   This Internet-Draft will expire on 10 May 2023.
 
 Copyright Notice
 
@@ -375,6 +375,7 @@ def FinalizeBatch(input, blind, evaluatedElements, blindedElements, proof):
 Authors' Addresses
 
    Raphael Robert
+   Phoenix R&D
    Email: ietf@raphaelrobert.com
 
 
